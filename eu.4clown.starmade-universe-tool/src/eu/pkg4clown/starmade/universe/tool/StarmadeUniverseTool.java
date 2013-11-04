@@ -8,12 +8,24 @@ package eu.pkg4clown.starmade.universe.tool;
  *
  * @author nf
  */
-public class StarmadeUniverseTool {
+public class StarmadeUniverseTool extends Thread{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //
+        new StarmadeUniverseTool().start();
+    }
+
+    public StarmadeUniverseTool() {
+        init();
+    }
+    
+    private void init(){
+        //Step1: Lesen der Config
+        //Step2: Starten der Befehlsschleife
+        //Step3: Einlesen der CascadingUniverseSheets
+        //Step4: Starten der Serverschleife
     }
 }
