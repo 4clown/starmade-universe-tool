@@ -4,14 +4,12 @@
  */
 package eu.pkg4clown.starmade.universe.tool;
 import java.io.*;
-/**
- *
- * @author nf
- */
+
 public class Config
 {
            public Config() throws IOException
            {
+               IOException ex;
                FileReader fr = new FileReader("config.txt");
                BufferedReader br = new BufferedReader(fr);
                
@@ -25,5 +23,11 @@ public class Config
                               
                br.close();
                
+               catch (IOException ex)
+               {
+                       ex.getMessage();
+               }
+               
            }
+           
 }
