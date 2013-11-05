@@ -20,6 +20,7 @@ public class StarmadeUniverseTool extends Thread{
 
     public StarmadeUniverseTool() {
         init();
+        //printIn ("Test");
     }
     
     private void init(){
