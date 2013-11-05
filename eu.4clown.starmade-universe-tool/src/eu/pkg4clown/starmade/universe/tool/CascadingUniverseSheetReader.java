@@ -10,5 +10,23 @@ package eu.pkg4clown.starmade.universe.tool;
  */
 public class CascadingUniverseSheetReader {
   
-//yeah
+{
+/* Platzhalter platzhalter = new platzhalter
+    int a = platzhalter.indexof("")
+    int b = platzhalter.indexof("")
+    String Name = platzhalter.substring(a,b)
+    
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
 }
