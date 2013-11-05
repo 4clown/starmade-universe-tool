@@ -10,4 +10,6 @@ package eu.pkg4clown.starmade.universe.tool;
  */
 public class Config {
     
+    //blubber
+    
 }
