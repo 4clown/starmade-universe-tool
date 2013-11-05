@@ -4,7 +4,11 @@
  */
 package eu.pkg4clown.starmade.universe.tool;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -16,26 +20,34 @@ public class StarmadeUniverseTool extends Thread{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        //
+    public static void main(String[] args) throws IOException {
+        //Step1: Lesen der Config
+        Config config = new Config();
+        //Step2: Starten der Befehlsschleife
         new StarmadeUniverseTool().start();
+        //Step3: Einlesen der CascadingUniverseSheets
+        //Step4: Starten der Serverschleife
     }
 
-    public StarmadeUniverseTool() {
-        init();
-        //printIn ("Test");
+    @Override
+    public void run() {
+        console();
     }
     
-    private void init(){
-        try {
-            //Step1: Lesen der Config
-            Config config = new Config();
-            //Step2: Starten der Befehlsschleife
-            //Step3: Einlesen der CascadingUniverseSheets
-            //Step4: Starten der Serverschleife
-        } catch (IOException ex) {
-            System.out.println("Eine IOException ist aufgetreten");
-            
+    public void console(){
+        while(true){
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                switch(br.readLine()){ 
+                    case "help": this.showHelp();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(StarmadeUniverseTool.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+    }
+    
+    public void showHelp(){
+        System.out.println("");
     }
 }
