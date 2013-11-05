@@ -19,15 +19,20 @@ public class Config
                {
                    test = br.readLine();
                    System.out.println(test);
+                   
                }
                               
                br.close();
                
-               catch (IOException ex)
+               /*catch (IOException ex)
                {
                        ex.getMessage();
                }
-               
+               */
            }
            
+           catch IOException ex)
+           {
+               ex.getMessage();
+           }
 }
