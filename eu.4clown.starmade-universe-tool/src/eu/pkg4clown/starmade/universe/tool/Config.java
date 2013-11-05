@@ -10,15 +10,20 @@ import java.io.*;
  */
 public class Config
 {
-    
-    try {
-            BufferedReader in = new BufferedReader(new FileReader("Config.txt"));
-            String zeile = null;
-            while ((zeile = in.readLine()) != null) {
-                System.out.pintln("Geleene Zeile: " + zeile);
-            }
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    
+           public Config() throws IOException
+           {
+               FileReader fr = new FileReader("config.txt");
+               BufferedReader br = new BufferedReader(fr);
+               
+               String test = br.readLine();
+               
+               while ( test != null )
+               {
+                   test = br.readLine();
+                   System.out.println(test);
+               }
+                              
+               br.close();
+               
+           }
 }
