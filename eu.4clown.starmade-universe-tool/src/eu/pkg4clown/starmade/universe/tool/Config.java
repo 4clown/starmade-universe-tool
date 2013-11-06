@@ -6,23 +6,28 @@ package eu.pkg4clown.starmade.universe.tool;
 
 import java.io.*;
 
-public class Config {
+class Config {
 
-    public Config() throws IOException
-    {
+    private String test;
+
+    public Config(String path) {
         try {
             IOException ex;
-            FileReader fr = new FileReader("config.txt");
+            FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String test = br.readLine();
+            this.test = br.readLine();
 
             while (test != null) {
                 test = br.readLine();
-                System.out.println(test);
+                test += test;
 
             }
+
         } catch (IOException ex) {
             ex.getMessage();
+            System.out.println(ex);
         }
+
+        System.out.println(test);
     }
 }
