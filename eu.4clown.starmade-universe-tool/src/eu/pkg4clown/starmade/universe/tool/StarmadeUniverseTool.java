@@ -7,6 +7,7 @@ package eu.pkg4clown.starmade.universe.tool;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,36 +16,17 @@ import java.util.logging.Logger;
  *
  * @author nf
  */
-public class StarmadeUniverseTool extends Thread implements iStarmadeUniverseTool{
+public class StarmadeUniverseTool implements iStarmadeUniverseTool{
 
     private iStarmade game;
+    private List<Sector> sectors;
+    private List<Region> regions;
+    private Config config;
 
     public StarmadeUniverseTool(iStarmade starmade) {
         this.game = starmade;
     }
-
-    @Override
-    public void run() {
-        Config config = new Config();
-        console();
-    }
     
-    void console(){
-        while(true){
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                switch(br.readLine()){ 
-                    case "help": this.showHelp();
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(StarmadeUniverseTool.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    
-    public void showHelp(){
-        System.out.println("");
-    }
 
     @Override
     public boolean loadSektor() {
@@ -52,5 +34,23 @@ public class StarmadeUniverseTool extends Thread implements iStarmadeUniverseToo
         //falls gefunden dann z.B game.setBlueprintInSektor(new Sektor(10,4,2), new Blueprint());
         return false;
         
+    }
+
+    @Override
+    public boolean loadCascadingUniverseSheet(String path) {
+        
+        return true;
+    }
+
+    @Override
+    public boolean loadConfig(String path) {
+        config = new Config();
+        return true;
+    }
+
+    @Override
+    public boolean startConsole() {
+        new Console().start();
+        return true;
     }
 }

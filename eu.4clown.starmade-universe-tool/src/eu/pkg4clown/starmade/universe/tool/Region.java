@@ -8,6 +8,6 @@ package eu.pkg4clown.starmade.universe.tool;
  *
  * @author nf
  */
-public interface iStarmade {
-    public void setBlueprintInSektor(Sector p_sektor, Blueprint p_blueprint); // Fehlt Position?
+public class Region {
+    
 }

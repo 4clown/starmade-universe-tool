@@ -10,4 +10,7 @@ package eu.pkg4clown.starmade.universe.tool;
  */
 public interface iStarmadeUniverseTool {
     public boolean loadSektor();
+    public boolean startConsole();
+    public boolean loadCascadingUniverseSheet(String path);
+    public boolean loadConfig(String path);
 }
