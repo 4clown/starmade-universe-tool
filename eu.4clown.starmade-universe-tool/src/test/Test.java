@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class Test {
     
-    private StarmadeUniverseTool isut;
+    private iStarmadeUniverseTool isut;
     /**
      * @param args the command line arguments
      */
@@ -28,6 +28,8 @@ public class Test {
         iStarmade starmade = new StarmadeGame();
         //Step2: Initialisiere die Library 
         isut = new StarmadeUniverseTool(starmade);
+        isut.loadConfig("c:\\config.cfg");
+        isut.loadCascadingUniverseSheet("c:\\univers.cus");
         //Step3: Einlesen der CascadingUniverseSheets
         //Step4: Starten der Serverschleife
     }
