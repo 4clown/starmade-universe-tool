@@ -9,7 +9,7 @@ import java.io.*;
 
 class CascadingUniverseSheetReader {
  
-    private String Sector; 
+    private String SectorString; 
     private String Platzhalter;
   
     public CascadingUniverseSheetReader (String path) {
@@ -28,7 +28,7 @@ class CascadingUniverseSheetReader {
                                     {
                                     if (!line.startsWith("#"))
                                     {
-                                    Sector += line; 
+                                    SectorString += line; 
                                     }           
                                     line = br.readLine();
                                     }
@@ -38,13 +38,13 @@ class CascadingUniverseSheetReader {
                                              nope.getMessage();
                                              System.out.println(nope);
                                              }
-              return Sector;  
+              return SectorString;  
     }    
    private String Sektorparser (String platzhalter) 
         {
-            int start = Sector.indexOf("");
-            int end = Sector.indexOf("");
-            return Sector.substring(start, end);
+            int start = SectorString.indexOf("");
+            int end = SectorString.indexOf("");
+            return SectorString.substring(start, end);
         }
 
 }
