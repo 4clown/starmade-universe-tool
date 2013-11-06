@@ -18,12 +18,20 @@ class Console extends Thread {
 
     @Override
     public void run() {
-        while (true) {
+         System.out.println("Wilkommen im Starmade Universe Tool!");
+         System.out.println("Irgendwelche Befehle?");
+         
+         while (true) {
+           
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             try {
+                
                 switch (br.readLine()) {
                     case "help":
                         this.showHelp();
+                        break;
+                    default:
+                        this.showDefault();
                 }
             } catch (IOException ex) {
                 Logger.getLogger(StarmadeUniverseTool.class.getName()).log(Level.SEVERE, null, ex);
@@ -32,6 +40,13 @@ class Console extends Thread {
     }
 
     public void showHelp() {
-        System.out.println("");
+        System.out.println("Help    Zeigt dir alle Befehle an");
+        System.out.println("Test1   Test1");
+        System.out.println("Test2   Test2");
+        System.out.println("Test3   Test3");
     }
+    public void showDefault() {
+            System.out.println("Befehl nicht gefunden");
 }
+}
+    
