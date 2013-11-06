@@ -4,50 +4,48 @@
  */
 package eu.pkg4clown.starmade.universe.tool;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 
 
 /**
  *
  * @author nf
  */
-public class StarmadeUniverseTool extends Thread{
+public class StarmadeUniverseTool implements iStarmadeUniverseTool{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws IOException {
-        //Step1: Lesen der Config
-        Config config = new Config();
-        //Step2: Starten der Befehlsschleife
-        new StarmadeUniverseTool().start();
-        //Step3: Einlesen der CascadingUniverseSheets
-        //Step4: Starten der Serverschleife
+    private iStarmade game;
+    private List<Sector> sectors;
+    private List<Region> regions;
+    private Config config;
+
+    public StarmadeUniverseTool(iStarmade starmade) {
+        this.game = starmade;
+    }
+    
+
+    @Override
+    public boolean loadSektor() {
+        //Soll den Sektor auf eingaben Prüfen wenn keine Vorhanden return false
+        //falls gefunden dann z.B game.setBlueprintInSektor(new Sektor(10,4,2), new Blueprint());
+        return false;
+        
     }
 
     @Override
-    public void run() {
-        console();
+    public boolean loadCascadingUniverseSheet(String path) {
+        
+        return true;
     }
-    
-    public void console(){
-        while(true){
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                switch(br.readLine()){ 
-                    case "help": this.showHelp();
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(StarmadeUniverseTool.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+
+    @Override
+    public boolean loadConfig(String path) {
+        config = new Config(path);
+        return true;
     }
-    
-    public void showHelp(){
-        System.out.println("");
+
+    @Override
+    public boolean startConsole() {
+        new Console().start();
+        return true;
     }
 }
