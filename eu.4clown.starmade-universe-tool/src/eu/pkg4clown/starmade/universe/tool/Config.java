@@ -8,7 +8,7 @@ import java.io.*;
 
 class Config {
 
-    private String test;
+    private String configString;
     private String command;
 
     public Config(String path) {
@@ -20,24 +20,27 @@ class Config {
         try {
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            this.test = br.readLine();
+            String line = br.readLine();
 
-            while (test != null) {
-                test = br.readLine();
-                test += test;
+            while (line != null) {
+                
+                if (!line.startsWith("#")) {
+                    configString += line;  
+                }
+                line = br.readLine();
             }
 
         } catch (IOException ex) {
             ex.getMessage();
             System.out.println(ex);
         }
-        return test;
+        return configString;
     }
 
     private String parseParameter(String command) {
 
-        int start = test.indexOf(command) + command.length();
-        int end = test.indexOf("\n", start);
-        return test.substring(start, end);
+        int start = configString.indexOf(command) + command.length() + 1;
+        int end = configString.indexOf("\n", start);
+        return configString.substring(start, end);
     }
 }
