@@ -30,6 +30,7 @@ public class Test {
         isut = new StarmadeUniverseTool(starmade);
         isut.loadConfig("c:\\config.cfg");
         isut.loadCascadingUniverseSheet("c:\\univers.cus");
+        isut.startConsole();
        
         //Step3: Einlesen der CascadingUniverseSheets
         //Step4: Starten der Serverschleife
