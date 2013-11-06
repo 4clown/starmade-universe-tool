@@ -7,45 +7,44 @@ package eu.pkg4clown.starmade.universe.tool;
 
 import java.io.*;
 
-public class CascadingUniverseSheetReader {
+class CascadingUniverseSheetReader {
  
-    private String Text; 
+    private String Sector; 
+    private String Platzhalter;
+  
+    public CascadingUniverseSheetReader (String path) {
+        loadText(path);
+        
+    }
     
-    public CascadingUniverseSheetReader(String path)
-    {
+       private String loadText (String path) {
         try {
-               IOException nope;
+              
                FileReader fr = new FileReader(path);
                BufferedReader br = new BufferedReader(fr);
-               this.Text = br.readLine();
+               String line = br.readLine();
                
-               while(Text != null) 
-                                   {
-                                   Text = br.readLine();
-                                   Text += Text; 
-                                   }
-             }     catch (IOException nope) 
+               while(line != null) 
+                                    {
+                                    if (!line.startsWith("#"))
+                                    {
+                                    Sector += line; 
+                                    }           
+                                    line = br.readLine();
+                                    }
+            }                            
+                                             catch (IOException nope) 
                                              {
                                              nope.getMessage();
                                              System.out.println(nope);
                                              }
-    
-    int start = Text.indexOf("");
-    int end = Text.indexOf("");
-    String x = Text.substring(start,end);
-    
-    int start2 = Text.indexOf("");
-    int end2 = Text.indexOf("");
-    String y = Text.substring(start2,end2);
-    
-    int start3 = Text.indexOf("");
-    int end3 = Text.indexOf("");
-    String z = Text.substring(start3,end3);
-    
-    
-    
-    
-    } 
-    
-}
+              return Sector;  
+    }    
+   private String Sektorparser (String platzhalter) 
+        {
+            int start = Sector.indexOf("");
+            int end = Sector.indexOf("");
+            return Sector.substring(start, end);
+        }
 
+}
