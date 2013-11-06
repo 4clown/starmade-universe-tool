@@ -9,8 +9,8 @@ import java.io.*;
 
 class CascadingUniverseSheetReader {
  
-    private String SectorString; 
-    private String Platzhalter;
+    private String sectorString; 
+    private String platzhalter;
   
     public CascadingUniverseSheetReader (String path) {
         loadText(path);
@@ -28,7 +28,7 @@ class CascadingUniverseSheetReader {
                                     {
                                     if (!line.startsWith("#"))
                                     {
-                                    SectorString += line; 
+                                    sectorString += line; 
                                     }           
                                     line = br.readLine();
                                     }
@@ -38,13 +38,17 @@ class CascadingUniverseSheetReader {
                                              nope.getMessage();
                                              System.out.println(nope);
                                              }
-              return SectorString;  
+              return sectorString;  
     }    
-   private String Sektorparser (String platzhalter) 
+   private String sectorParser (String platzhalter) 
         {
-            int start = SectorString.indexOf("");
-            int end = SectorString.indexOf("");
-            return SectorString.substring(start, end);
+            int startx = sectorString.indexOf(platzhalter) + platzhalter.length() + 1;  //wenn in der secoren config: sector1=x,y,z
+            int endx = sectorString.indexOf(",",startx);
+            int starty = sectorString.indexOf(platzhalter) + platzhalter.length() + 1; //liest die x koordinate anstelle der y koordinate
+            int endy = sectorString.indexOf(",",starty);
+            int startz = sectorString.indexOf(platzhalter) + platzhalter.length() + 1; //liest die x koordinate anstelle der z koordinate
+            int endz = sectorString.indexOf(",", startz); 
+            return sectorString.substring(startx, endx) + "," + sectorString.substring(starty, endy) + "," + sectorString.substring(startz, endz);
         }
 
 }
