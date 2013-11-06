@@ -15,26 +15,21 @@ import java.util.logging.Logger;
  *
  * @author nf
  */
-public class StarmadeUniverseTool extends Thread{
+public class StarmadeUniverseTool extends Thread implements iStarmadeUniverseTool{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws IOException {
-        //Step1: Lesen der Config
-        Config config = new Config();
-        //Step2: Starten der Befehlsschleife
-        new StarmadeUniverseTool().start();
-        //Step3: Einlesen der CascadingUniverseSheets
-        //Step4: Starten der Serverschleife
+    private iStarmade game;
+
+    public StarmadeUniverseTool(iStarmade starmade) {
+        this.game = starmade;
     }
 
     @Override
     public void run() {
+        Config config = new Config();
         console();
     }
     
-    public void console(){
+    void console(){
         while(true){
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             try {
@@ -49,5 +44,13 @@ public class StarmadeUniverseTool extends Thread{
     
     public void showHelp(){
         System.out.println("");
+    }
+
+    @Override
+    public boolean loadSektor() {
+        //Soll den Sektor auf eingaben Prüfen wenn keine Vorhanden return false
+        //falls gefunden dann z.B game.setBlueprintInSektor(new Sektor(10,4,2), new Blueprint());
+        return false;
+        
     }
 }
