@@ -45,7 +45,8 @@ class Console extends Thread {
         System.out.println("Test2   Test2");
         System.out.println("Test3   Test3");
     }
-}
     public void showDefault() {
             System.out.println("Befehl nicht gefunden");
 }
+}
+    
