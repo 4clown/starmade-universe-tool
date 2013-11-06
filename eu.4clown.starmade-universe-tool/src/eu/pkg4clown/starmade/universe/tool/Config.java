@@ -12,8 +12,12 @@ class Config {
     private String command;
     
     public Config(String path) {
+      loadText(path);
+      System.out.println(parseParameter(command));
+     }
+    
+    public String loadText(String path) {
         try {
-            IOException ex;
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
             this.test = br.readLine();
@@ -27,10 +31,10 @@ class Config {
             ex.getMessage();
             System.out.println(ex);
         }
-        System.out.println(test);
-     }
-        
-    public String parameter(String command) {
+        return test;
+    }
+    
+    public String parseParameter(String command) {
        
         int start = test.indexOf(command) + command.length();
         int end = test.indexOf("\n",start);
