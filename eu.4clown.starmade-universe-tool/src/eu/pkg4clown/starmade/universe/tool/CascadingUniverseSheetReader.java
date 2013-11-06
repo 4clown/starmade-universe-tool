@@ -4,10 +4,7 @@
  */
 package eu.pkg4clown.starmade.universe.tool;
 
-/**
- *
- * @author nf
- */
+
 import java.io.*;
 
 public class CascadingUniverseSheetReader {
@@ -27,45 +24,28 @@ public class CascadingUniverseSheetReader {
                                    Text = br.readLine();
                                    Text += Text; 
                                    }
-                   }catch (IOException nope) 
+             }     catch (IOException nope) 
                                              {
                                              nope.getMessage();
                                              System.out.println(nope);
                                              }
     
-    int a = Text.indexOf("");
-    int b = Text.indexOf("");
-    String Sektornummer = Text.substring(a,b);
+    int start = Text.indexOf("");
+    int end = Text.indexOf("");
+    String x = Text.substring(start,end);
+    
+    int start2 = Text.indexOf("");
+    int end2 = Text.indexOf("");
+    String y = Text.substring(start2,end2);
+    
+    int start3 = Text.indexOf("");
+    int end3 = Text.indexOf("");
+    String z = Text.substring(start3,end3);
     
     
     
     
-    
-    }
-        
-        
-        
-        
-        
-        
-   /* 
-    int a = platzhalter.indexof("")
-    int b = platzhalter.indexof("")
-    String Name = platzhalter.substring(a,b) */
-    
-    
-    
-    
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    } 
     
 }
-}
+
