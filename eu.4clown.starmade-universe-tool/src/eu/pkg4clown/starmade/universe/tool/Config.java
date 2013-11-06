@@ -19,6 +19,7 @@ class Config {
 
             while (test != null) {
                 test = br.readLine();
+
                 test += test;
 
             }

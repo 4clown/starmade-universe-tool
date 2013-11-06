@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author nf
  */
-public class Console extends Thread {
+class Console extends Thread {
 
     @Override
     public void run() {

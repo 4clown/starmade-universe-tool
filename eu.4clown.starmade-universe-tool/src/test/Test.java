@@ -28,7 +28,6 @@ public class Test {
         iStarmade starmade = new StarmadeGame();
         //Step2: Initialisiere die Library 
         isut = new StarmadeUniverseTool(starmade);
-        isut.start();
         //Step3: Einlesen der CascadingUniverseSheets
         //Step4: Starten der Serverschleife
     }
