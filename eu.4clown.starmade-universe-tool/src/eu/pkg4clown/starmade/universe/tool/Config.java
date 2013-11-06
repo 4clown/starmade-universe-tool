@@ -19,7 +19,6 @@ public class Config {
             while (test != null) {
                 test = br.readLine();
                 System.out.println(test);
-
             }
         } catch (IOException ex) {
             ex.getMessage();
