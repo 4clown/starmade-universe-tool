@@ -44,9 +44,9 @@ class CascadingUniverseSheetReader {
         {
             int startx = sectorString.indexOf(platzhalter) + platzhalter.length() + 1;  //wenn in der secoren config: sector1=x,y,z
             int endx = sectorString.indexOf(",",startx);
-            int starty = sectorString.indexOf(platzhalter) + platzhalter.length() + 1; //liest die x koordinate anstelle der y koordinate
+            int starty = sectorString.indexOf(platzhalter) + platzhalter.length(); //liest die x koordinate anstelle der y koordinate
             int endy = sectorString.indexOf(",",starty);
-            int startz = sectorString.indexOf(platzhalter) + platzhalter.length() + 1; //liest die x koordinate anstelle der z koordinate
+            int startz = sectorString.indexOf(platzhalter) + platzhalter.length(); //liest die x koordinate anstelle der z koordinate
             int endz = sectorString.indexOf(",", startz); 
             return sectorString.substring(startx, endx) + "," + sectorString.substring(starty, endy) + "," + sectorString.substring(startz, endz);
         }
