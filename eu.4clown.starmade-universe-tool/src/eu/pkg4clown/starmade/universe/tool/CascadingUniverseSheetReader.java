@@ -11,7 +11,23 @@ class CascadingUniverseSheetReader {
  
     private String sectorString; 
     private String platzhalter;
-  
+    
+    private static final String testcvs = ""
+            + "#SECTOR 44,-87,4 {"
+            + "   command1: wert;"
+            + "   command2: wert;"
+            + "   funktion(var1,var2);"
+            + "}"
+            + "#REGION 24,-87,4 to 2,2,2 {"
+            + "   command2: wert;"
+            + "   funktion(var1,var2);"
+            + "}"
+            + "#SECTOR 12,-4,3 {"
+            + "   command1: wert;"
+            + "   command2: wert;"
+            + "   funktion(var1,var2);"
+            + "}";
+    
     public CascadingUniverseSheetReader (String path) {
         loadText(path);
         
