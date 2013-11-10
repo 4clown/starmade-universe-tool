@@ -10,7 +10,7 @@ import java.io.*;
 class CascadingUniverseSheetReader {
  
     private String sectorString; 
-    private String platzhalter;
+    private String SectorNr;
   
     public CascadingUniverseSheetReader (String path) {
         loadText(path);
@@ -40,13 +40,13 @@ class CascadingUniverseSheetReader {
                                              }
               return sectorString;  
     }    
-   private String sectorParser (String platzhalter) 
+   private String sectorParser (String SectorNr) 
         {
-            int startx = sectorString.indexOf(platzhalter) + platzhalter.length() + 1;  //wenn in der secoren config: sector1=x,y,z
+            int startx = sectorString.indexOf(SectorNr) + SectorNr.length() + 1;  //wenn in der sectoren config: sector1=x,y,z
             int endx = sectorString.indexOf(",",startx);
-            int starty = sectorString.indexOf(platzhalter) + platzhalter.length() + 1; //liest die x koordinate anstelle der y koordinate
+            int starty = sectorString.indexOf(SectorNr) + SectorNr.length() + 1; //liest die x koordinate anstelle der y koordinate
             int endy = sectorString.indexOf(",",starty);
-            int startz = sectorString.indexOf(platzhalter) + platzhalter.length() + 1; //liest die x koordinate anstelle der z koordinate
+            int startz = sectorString.indexOf(SectorNr) + SectorNr.length() + 1; //liest die x koordinate anstelle der z koordinate
             int endz = sectorString.indexOf(",", startz); 
             return sectorString.substring(startx, endx) + "," + sectorString.substring(starty, endy) + "," + sectorString.substring(startz, endz);
         }
